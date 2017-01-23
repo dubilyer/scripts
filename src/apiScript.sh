@@ -20,8 +20,5 @@ function sendAndWait() {
         echo $result
     done
 }
-#sendAndWait $1 $2
+sendAndWait $1 $2
 #"Automation-scrum-deploy" "ACTION\=tag_scrum\&SCRUM_ORIGIN\=scrum10\&SCRUM_NAME\=scrum19"
-a=hi
-b=bur
-echo $a$b
