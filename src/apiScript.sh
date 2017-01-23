@@ -1,5 +1,5 @@
 #!/usr/bin/sh
-user='Munir-b:cc2c8e094fec6fe8a77eb45c9656050f'
+user='automation-gett:a6b5d5f35386e55d33f2682bd29ac614'
 function sendAndWait() {
     #run the job and get it's queue id
     queue=`curl -i -X  POST http://ci.gtforge.com:8080/job/$1/buildWithParameters\?$2  --user $user | grep queue | sed -e 's/^Location: //g' | sed -e 's/8080//g' | sed -e 's/[^0-9]//g'` > /dev/null 2>&1
@@ -20,5 +20,8 @@ function sendAndWait() {
         echo $result
     done
 }
-sendAndWait $1 $2
+#sendAndWait $1 $2
 #"Automation-scrum-deploy" "ACTION\=tag_scrum\&SCRUM_ORIGIN\=scrum10\&SCRUM_NAME\=scrum19"
+a=hi
+b=bur
+echo $a$b
