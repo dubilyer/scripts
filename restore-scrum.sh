@@ -1,14 +1,17 @@
 #!/usr/bin/env bash
 SCRUM="scrum8"
 
-for srv in   "ru" "us" "uk" "pms" "class-identity" "class-availability" "media" "ordering" "preeta" "clientgateway" "travelpolicy" "trip" "line" "depot" "location" "futureorder" "supplygateway" "saw" "invitation" "osrm" "liveheatmaps" "coupon" "fraud" "charging" "pricing" "subscription" "commission" "reports" "earnings" "rides" "regionidentity" "arm" "notification" "b2bgateway" "victory"; do
-    if srv "area" "bookkeeping" ; then
-        HOST="posgress-qa-ver-95.gtforge.com"
-    else
-        HOST="posgress-qa.gtforge.com"
-    fi
-    PGUSER=
-done
+function displayParameters(){
+echo "--------------------"
+echo "host: " $HOST
+echo "pguser: " $PGUSER
+echo "pgdb: " $PGDB
+echo "service: "$SERVICE
+echo "--------------------"
+
+}
+
+
 
 function restore_service(){
 echo "host: " $HOST
@@ -54,3 +57,15 @@ echo "Restoring " $PGDB " To " $HOST ", " $DBSUFFIX
 pg_restore -v -O -L ~/$DUMPPATH/$SERVICE.toc -h $HOST -d $PGDB -U $PGUSER ~/$DUMPPATH/$SERVICE.dump.out
 #psql -h $HOST -d $PGDB -U $PGUSER -c "INSERT INTO public.users (email, encrypted_password, reset_password_token, reset_password_sent_at, remember_created_at, sign_in_count, current_sign_in_at, last_sign_in_at, current_sign_in_ip, last_sign_in_ip, created_at, updated_at, encrypted_otp_secret, encrypted_otp_secret_iv, encrypted_otp_secret_salt, consumed_timestep) VALUES ('global_admin@gett.com', '\$2a\$10\$TOu6LRFXiVad.dmJd/T4NeMGGAmMSstF2F3xNORjNcR4lkZ1gcrm.', null, null, null, 20, now(),now(), '0.0.0.0', '0.0.0.0', now(), now(), null, null, null, null); INSERT INTO public.users_roles (user_id, role_id) VALUES ((select id from users where email = 'global_admin@gett.com'), (select id from roles where name like '%Global admin' limit 1) );"
 }
+
+for srv in   "ru" "us" "uk" "pms" "class-identity" "class-availability" "media" "ordering" "preeta" "clientgateway" "travelpolicy" "trip" "line" "depot" "location" "futureorder" "supplygateway" "saw" "invitation" "osrm" "liveheatmaps" "coupon" "fraud" "charging" "pricing" "subscription" "commission" "reports" "earnings" "rides" "regionidentity" "arm" "notification" "b2bgateway" "victory"; do
+    if [[ "$srv" =~ ^(area|bookkeeping)$ ]]; then
+        HOST="posgress-qa-ver-95.gtforge.com"
+    else
+        HOST="posgress-qa.gtforge.com"
+    fi
+    PGUSER=${srv}${SCRUM}
+    PGDB=${PGUSER}
+    SERVICE=${srv}
+    fake_restore
+done

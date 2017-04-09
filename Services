@@ -1,6 +1,6 @@
 All:
 
-"il" "ru" "uk" "us" "class-identity" "class-availability" "media" "ordering" "preeta" "clientgateway" "travelpolicy" "trip" "line" "depot" "location" "futureorder" "supplygateway" "saw" "invitation" "osrm" "liveheatmaps" "coupon" "fraud" "charging" "pricing" "subscription" "commission" "reports" "earnings" "rides" "regionidentity" "arm" "notification" "b2bgateway" "victory" "bookkeeping" "pms" "area"
+"il" "ru" "uk" "us" "class-identity" "class-availability" "media" "ordering" "preeta" "clientgateway" "travelpolicy" "trip" "line" "depot" "location" "futureorder" "supplygateway" "saw" "invitation" "osrm" "liveheatmaps" "coupon" "fraud" "charging" "pricing" "subscription" "commission" "reports" "earnings" "rides" "regionidentity" "arm" "notification" "b2bgateway" "victory" "bookkeeping" "pms" "area" "auth" "hub" "driverportal" "developer" "paymentsubscription" "rating" "publicapi"
 
 94
 
@@ -18,3 +18,10 @@ postgres
 
 "class-identity" "class-availability" "media" "ordering" "preeta" "clientgateway" "travelpolicy" "trip" "line" "depot" "location" "futureorder" "supplygateway" "saw" "invitation" "osrm" "liveheatmaps" "coupon" "fraud" "charging" "pricing" "subscription" "commission" "reports" "earnings" "rides" "regionidentity" "arm" "notification" "b2bgateway" "victory" "bookkeeping" "area"
 
+eye
+
+"il" "ru" "uk" "us" "class-identity" "class-availability" "media" "ordering" "travelpolicy" "trip" "line" "depot"  "futureorder"  "saw" "invitation" "osrm" "liveheatmaps" "coupon"  "charging" "pricing" "subscription" "commission"  "earnings" "notification"  "victory" "bookkeeping" "pms" "area"
+
+docker
+
+"preeta" "clientgateway" "location" "supplygateway" "fraud" "reports" "rides" "regionidentity" "arm" "b2bgateway"
