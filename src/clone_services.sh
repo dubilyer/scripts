@@ -4,8 +4,8 @@ cd ~/services/
 
 #git clone git@github.com:gtforge/gtforge_server.git
 
-for srv in "class_identity"; #"class_availability" "media" "ordering" "preeta" "clientgateway" "travelpolicy" "trip" "line" "depot" "location" "futureorder" "supplygateway" "saw" "invitation" "osrm" "liveheatmaps" "coupon" "fraud" "charging" "pricing" "subscription" "commission" "reports" "earnings" "rides" "regionidentity" "arm" "notification" "b2bgateway" "victory"; do
-    do
+for srv in "class_identity" "class_availability" "media" "ordering" "preeta" "clientgateway" "travelpolicy" "trip" "line" "depot" "location" "futureorder" "supplygateway" "saw" "invitation" "osrm" "liveheatmaps" "coupon" "fraud" "charging" "pricing" "subscription" "commission" "reports" "earnings" "rides" "regionidentity" "arm" "notification" "b2bgateway" "victory"; do
+ #   do
     rm -rf ${srv}_service
     git clone git@github.com:gtforge/${srv}_service.git
     srv=${srv//_/-}
